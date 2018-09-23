@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>孔子网app管理后台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/bootstrap-4.0.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/iconfont.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row heading-bg">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h5 class="txt-dark">用户管理</h5>
+        </div>
+        <!-- Breadcrumb -->
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><a href="">孔子网后台管理平台</a></li>
+                <li class="breadcrumb-item"><span>用户管理</span></li>
+            </ol>
+        </div>
+        <!-- /Breadcrumb -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="tab-struct custom-tab-1"></div>
+
+            <ul class="nav nav-tabs">
+                <li class="nav-item list_btn"><a class="nav-link active" href="#list">用户列表</a></li>
+                <li class="nav-item add_btn"><a data-toggle="tab" aria-expanded="false" class="nav-link" href="#add">新增</a> </li>
+            </ul>
+            <!--        <hr class="aa"/>-->
+            <div class="tab-content">
+                <!--用户信息列表模块-->
+                <div class="row list" id="list">
+                    <div class="container-fluid">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead class="thead-light">
+                            <tr>
+                                <th>用户名</th>
+                                <th>真实姓名</th>
+                                <th>角色名称</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user : ${datas}">
+                                <td th:text="${user.username}"></td>
+                                <td th:text="${user.trueName}"></td>
+                                <td th:text="${user.roleName}"></td>
+                                <td>
+                                    <a class="" data-toggle="tooltip"  title="编辑" th:href="@{/admin/user/edit(id=${user.id})}">
+                                        <i class="iconfont   icon-bj"></i>
+                                    </a>
+                                    <a class="del" data-toggle="tooltip"  title="删除" href="#" th:attr="data-id=${user.id}">
+                                        <i class="iconfont icon-shanchu"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!--用户信息新增模块-->
+                <div id="add" class="tab-pane fade" style="display:none">
+                    <div class="form-row">
+                        <div class="col-lg-6">
+                            <div class="form-wrap">
+                                <form  th:action="@{/admin/user/save}" enctype="multipart/form-data" method="post">
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label">用户名</label>
+                                        <div class="col-6">
+                                            <input class="form-control" type="text" name="username"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label">真实姓名</label>
+                                        <div class="col-6">
+                                            <input class="form-control" type="text" name="trueName"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label">角色</label>
+                                        <div class="col-6">
+                                            <select class="form-control" name="roleName">
+                                                <option>请选择类型</option>
+                                                <option th:each="roleName:${roleList}" th:value="${roleName.id}" th:text="${roleName.name}"></option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label" >密码</label>
+                                        <div class="col-6">
+                                            <input class="form-control" type="password" name="password"/>
+                                        </div>
+
+                                        </label>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-3 col-form-label">备注</label>
+                                        <div class="col-6">
+                                            <input class="form-control" type="text" name="detail"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-lg-offset-3 col-9">
+                                            <input class="btn btn-success btn-anim" id="submit" name="submit" value="提交" type="submit" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/vendors/jquery-3.3.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/vendors/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/vendors/bootstrap-4.0.0/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/user/user.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+<script type="text/javascript">
+    $(function(){
+        $('.list_btn').click(function(){
+            $('#add').hide();
+            $('#list').show();
+        });
+        $('.add_btn').click(function(){
+            $('#list').hide();
+            $('#add').show();
+        })
+
+        $('.del').click(function(){
+
+            $(this).attr('data-id')
+            console.log($(this).attr('data-id'));
+            window.location.href="/admin/user/delete?id="+$(this).attr('data-id')
+
+        });
+    });
+</script>
+</body>
+</html>
+
+
+

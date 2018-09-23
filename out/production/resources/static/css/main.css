@@ -1,0 +1,228 @@
+
+.main{
+	height:100%;
+	overflow:hidden;
+}
+/* 左侧 */
+.menu_main{
+	background-color: #283f55;
+	width:220px;
+	height:100%;
+	color:white;
+	border: 1px solid #283f55;
+	float:left;
+}
+	.menu_top{
+		margin-top: 20px;
+		padding:5px;
+	}
+	.menu_top:after{
+		display: block;
+		content:" ";
+		clear: both;
+		visibility: hidden; 
+	}
+		.top_icon_back{
+			width:30px;
+			height:30px;
+			padding:3px;
+			border:1px solid white;
+			border-radius: 15px;
+			float:left;
+		}
+		.top_msg{
+			float:left;
+			margin-left: 10px;
+			line-height: 30px;
+			font-size: 16px;
+		}
+	/* 头像昵称等 */
+	.user_msg_back{
+		padding:5px;
+		margin-top:10px;
+	}
+	.user_msg_back:after{
+		display: block;
+		content:" ";
+		clear: both;
+		visibility: hidden; 
+	}
+		.user_icon_back{
+			float:left;
+		}
+			.user_icon{
+				float:left;
+			}
+			.user_msg{
+				float:left;
+				margin-left:10px;
+			}
+				.welcome{
+					color:#aaa;
+				}
+	/* 菜单列表 */
+	.menu_list{
+		width:100%;	
+	}		
+		/* 选中的一级样式 */
+		.sel_first_level{
+			background-color: #2f4457;
+			border-top: 1px solid #4d5f6b;
+		}
+			.level1>li{				
+				font-size:16px;
+				text-align: left;		
+			}
+			/* 第一层 */
+			.level1>li>a{
+				display: block;
+				padding: 10px 12px;
+				color:#e1e1e1;
+			}
+			.level1>li>a>i:first-child{
+				margin-right: 10px;
+			}
+			.level1>li>a>.right_arrow{
+				float:right;
+				font-size:21px;
+				margin-top:-4px;
+				-webkit-transition: -webkit-transform 0.4s ease-out;
+				-moz-transition: -moz-transform 0.4s ease-out;
+				-ms-transition: -ms-transform 0.4s ease-out;
+				transition: transform 0.4s ease-out;
+			}
+				.bottom_arrow{
+					-webkit-transform: rotate(90deg);
+					-moz-transform: rotate(90deg);
+					-ms-transform: rotate(90deg);
+					transform: rotate(90deg);
+				}
+		/* 第二层 */
+		.level2{
+			display: none;
+		}
+		/* 选中的二级样式 */
+		.sel_second_level{			
+			background-color: #35495d;					
+		}
+			.level2>li>a{
+				display: block;
+				padding: 10px 48px;
+				color: #e1e1e1;
+				font-size:15px;
+			}
+/* 右侧 */
+.right_content{
+	width: calc(100% - 220px);
+	height:100%;
+	float:left;		
+	overflow-y: auto;
+}
+	.top{
+		background-color: #ededed;
+		width:calc(100% - 220px);
+		height:45px;
+		position: absolute;
+		z-index:999;
+		left:220px;
+		top:0;
+		right:0;
+	}
+		.left_operat_back{
+			float:left;
+		}
+			.left_operat_icon{
+				font-size: 28px;
+				margin-left:12px;			
+			}
+		.right_msg_back{
+			float:right;
+			margin-right:20px;
+			height:100%;		
+		}
+			.nav_opera{
+				display: inline-block;
+				height:100%;
+			}
+				.nav_opera>li{
+					display: inline-block;
+					float:left;					
+					height:100%;
+					line-height: 100%;
+				}
+					.msg_operate{								
+						display: inline-block;						
+						position:relative;							
+						padding:14px 15px;
+					}
+						.msg_operate>i{
+							font-size:28px;
+						}
+						.msg_num{
+							position: absolute;
+							display: inline-block;
+							text-align: center;
+							width:20px;
+							height:20px;
+							line-height:20px;
+							border-radius:10px;
+							background-color: red;
+							color:white;
+							font-size: 12px;
+							top:3px;
+							right:10px;				
+						}
+			.user_operate{
+				display: inline-block;						
+				position:relative;	
+				padding:6px 10px;
+			}
+				.user_operate>img{
+					width:30px;
+					height:30px;
+					vertical-align: middle;
+				}
+				.user_operate>i{
+					font-size:21px;
+					vertical-align: middle;		
+				}
+			/* 用户的设置、退出 */
+			.user_operate_list{
+				position:absolute;
+				display: block;
+				top:100%;
+				right:20px;
+				min-width: 200px;
+				background-color: white;
+				box-shadow: 0 0 3px #a1a1a1;
+				display: none;		
+			}
+			.user_operate_list>li{
+				display: block;
+			}
+			.user_operate_list>li:not(:first-child){
+				border-top: 1px solid #e1e1e1;
+			}
+				.user_operate_list>li>a{
+					font-size: 16px;
+					padding:15px 20px;
+					display: block;
+				}			
+	/* 主内容 */
+	.main_content{
+		margin-top: 45px;
+		width:100%;
+		height:calc(100% - 45px);	
+		background-color: #f7f7f7;		
+	}
+		/* iframe */
+		.content{
+			width:100%;				
+			border:none;
+			background-color: #f7f7f7;
+			min-height: 100%;
+		}
+
+.text-right{
+	text-align: right!important;
+}

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>孔子网app管理后台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/bootstrap-4.0.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/iconfont.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+
+</head>
+<body>
+<div class="main">
+    <!-- 左侧列表 -->
+    <div class="menu_main">
+        <div class="menu_top">
+            <div class="top_icon_back">
+                <img th:src="@{/img/zhua.png}"/>
+            </div>
+            <div class="top_msg">孔子网管理后台</div>
+        </div>
+        <!-- 用户信息 -->
+        <div class="user_msg_back">
+            <img class="user_icon" th:src="@{/img/head.png}">
+            <div class="user_msg">
+                <div class="welcome">Welcome !</div>
+                <div class="user_name"><span th:text="${userNow.username}"></span></div>
+            </div>
+        </div>
+        <!-- 模块列表 -->
+        <div class="menu_list">
+            <ul class="level1">
+                <li>
+                    <a href="#">
+                        <i class="iconfont icon-home list_icon"></i>首页
+                        <i class="iconfont icon-right_arrow right_arrow"></i>
+                    </a>
+                    <ul class="level2">
+                        <li>
+                            <a href="#">首页</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="iconfont icon-users list_icon"></i>用户管理
+                        <i class="iconfont icon-right_arrow right_arrow"></i>
+                    </a>
+                    <ul class="level2">
+                        <li>
+                            <a href="javascript:void(0)" th:title="@{/admin/user/list}">用户管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="iconfont icon-permission list_icon"></i>权限设置
+                        <i class="iconfont icon-right_arrow right_arrow"></i>
+                    </a>
+                    <ul class="level2">
+                        <li>
+                            <a href="javascript:void(0)" th:title="@{/admin/role/list}">角色管理</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 右侧 -->
+    <div class="right_content">
+        <div class="top">
+            <div class="left_operat_back"><i class="iconfont icon-sanhang left_operat_icon"></i></div>
+            <div class="right_msg_back">
+                <ul class="nav_opera">
+                    <li>
+                        <a class="msg_operate" href="#">
+                            <i class="iconfont icon-alarm"></i>
+                            <span class="msg_num">6</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="user_operate" href="#">
+                            <img th:src="@{/img/head.png}"/>
+                            <span th:text="@{${userNow.username}}"></span>
+                            <i class="iconfont icon-bottom_arrow"></i>
+                        </a>
+                        <ul class="user_operate_list">
+                            <li><a href="#"><i class="iconfont icon-setting"></i> 设置</a></li>
+                            <li><a th:href="@{/admin/login}"><i class="iconfont icon-logout"></i> 退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main_content">
+            <iframe class="content" src=""></iframe>
+            <!--Footer-->
+            <div th:replace="common/fragements :: footer"></div>
+        </div>
+
+    </div>
+</div>
+
+<script th:src="@{/vendors/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/vendors/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>孔子网app管理后台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/vendors/bootstrap-4.0.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/iconfont.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/common.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+
+</head>
+<body>
+<!--MainContent-->
+<div class="container-fluid">
+    <div class="row heading-bg">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <h5 class="txt-dark">修改用户信息</h5>
+        </div>
+        <!-- Breadcrumb -->
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active" aria-current="page"><a href="">孔子网后台管理平台</a></li>
+                <li class="breadcrumb-item"><span>修改用户信息</span></li>
+            </ol>
+        </div>
+        <!-- /Breadcrumb -->
+    </div>
+    <!--用户信息-->
+
+    <div class="form-row">
+        <div class="col-lg-6">
+            <div class="form-wrap">
+                <!--/*@thymesVar id="user" type="com.towen.security.User"*/-->
+
+                <form th:action="@{/admin/user/update}" enctype="multipart/form-data" method="post">
+                    <input type="hidden" name="id" th:value="${user.id}"/>
+                    <!--<input type="hidden" name="password"/>-->
+                    <input type="hidden" name="createBy" th:value="${user.createBy}"/>
+                    <input type="hidden" name="createDate" th:value="${user.createDate}"/>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">用户名</label>
+                        <div class="col-6">
+                            <input class="form-control" type="text" th:value="${user.username}" name="username"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">真实姓名</label>
+                        <div class="col-6">
+                            <input class="form-control" type="text" th:value="${user.trueName}" name="trueName"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">密码</label>
+                        <div class="col-6">
+                            <input class="form-control" type="password" th:value="${user.password}" name="password"/>
+                        </div>
+
+                        </label>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-3 col-form-label">备注</label>
+                        <div class="col-6">
+                            <input class="form-control" type="text" th:value="${user.detail}" name="detail"/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-offset-3 col-9">
+                            <input class="btn btn-success btn-anim" id="submit" name="submit" value="提交" type="submit"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /Main Content -->
+
+
+<script th:src="@{/vendors/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/vendors/popper.min.js}"></script>
+<script th:src="@{/vendors/bootstrap-4.0.0/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+</html>
+
+
+

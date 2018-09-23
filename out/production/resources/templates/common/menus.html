@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!-- Left Sidebar Menu -->
+<!-- 左侧列表 -->
+<div class="menu_main">
+  <div class="menu_top">
+    <div class="top_icon_back">
+      <img th:src="@{/img/zhua.png}"/>
+    </div>
+    <div class="top_msg">孔子网管理后台</div>
+  </div>
+  <!-- 用户信息 -->
+  <div class="user_msg_back">
+    <img class="user_icon" th:src="@{/img/head.png}">
+    <div class="user_msg">
+      <div class="welcome">Welcome !</div>
+      <div class="user_name"><span th:text="${userNow.username}"></span></div>
+    </div>
+  </div>
+  <!-- 模块列表 -->
+  <div th:fragment="left" class="menu_list">
+    <ul class="level1">
+      <li>
+        <a href="#">
+          <i class="iconfont icon-home list_icon"></i>首页
+          <i class="iconfont icon-right_arrow right_arrow"></i>
+        </a>
+        <ul class="level2">
+          <li>
+            <a href="#">首页</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class="iconfont icon-users list_icon"></i>用户管理
+          <i class="iconfont icon-right_arrow right_arrow"></i>
+        </a>
+        <ul class="level2">
+          <li>
+            <a href="#">用户管理</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class="iconfont icon-permission list_icon"></i>权限设置
+          <i class="iconfont icon-right_arrow right_arrow"></i>
+        </a>
+        <ul class="level2">
+          <li>
+            <a href="#">角色管理</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class="iconfont icon-users list_icon"></i>系统设置
+          <i class="iconfont icon-right_arrow right_arrow"></i>
+        </a>
+        <ul class="level2">
+          <li>
+            <a href="#">菜单管理</a>
+          </li>
+          <li>
+            <a href="#">模块管理</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+<!-- /Left Sidebar Menu -->
+
+<!-- Top Menu Items -->
+<nav th:fragment="top" class="navbar navbar-inverse navbar-fixed-top">
+  <div class="top">
+    <div class="left_operat_back"><i class="iconfont icon-sanhang left_operat_icon"></i></div>
+    <div class="right_msg_back">
+      <ul class="nav_opera">
+        <li>
+          <a class="msg_operate" href="#">
+            <i class="iconfont icon-alarm"></i>
+            <span class="msg_num">6</span>
+          </a>
+        </li>
+        <li>
+          <a class="user_operate" href="#">
+            <img th:src="@{/img/head.png}"/>
+            <span th:text="@{${userNow.username}}"></span>
+            <i class="iconfont icon-bottom_arrow"></i>
+          </a>
+          <ul class="user_operate_list">
+            <li><a href="#"><i class="iconfont icon-setting"></i> 设置</a></li>
+            <li><a th:href="@{/admin/login}"><i class="iconfont icon-logout"></i> 退出</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- /Top Menu Items -->
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>孔子网app管理后台</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" th:href="@{/vendors/bootstrap-4.0.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+
+</head>
+<body>
+<div class="bigDiv">
+    <div class="main">
+        <form class="form-signin" th:action="@{/admin/login}" method="post">
+            <div class="left-login">
+                <div class="top-title">
+                    <h1 class="title">孔子网管理后台</h1>
+                    <p class="content">Login to your account</p>
+                </div>
+                <div class="center-login">
+                    <div class="d1">
+                        <input id="username" class="ipt_90" name="username" type="text"/>
+                    </div>
+                    <div class="d2">
+                        <input id="password" class="ipt_90" name="password" type="text" />
+                    </div>
+                    <div class="d3">
+                        <input class="check" type="checkbox" name="" />
+                        <span class="remeber_me">Remember me</span>
+                    </div>
+                    <div class="d4">
+                        <button id="login" class="login_btn" type="submit">LOGIN</button>
+                    </div>
+                    <div class="d5">
+                        <i></i>
+                        <span class="forgot">Forgot password?</span>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="right-confucius">
+        </div>
+    </div>
+</div>
+</body>
+</html>

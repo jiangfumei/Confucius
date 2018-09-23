@@ -1,0 +1,28 @@
+
+.heading-bg {
+    height: 67px;
+    margin: 0 -20px 10px;
+    padding: 13px 0;
+}
+.breadcrumb {
+    background-color: transparent;
+    float: right;
+    list-style: outside none none;
+    margin-bottom: 0;
+    padding: 9px 0 0 0;
+    font-size: 13px;
+}
+.breadcrumb>li {
+    display: inline-block;
+}
+
+.breadcrumb a {
+    color: #212121;
+    opacity: .5;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+breadcrumb a, .breadcrumb span {
+    text-transform: capitalize;
+}
